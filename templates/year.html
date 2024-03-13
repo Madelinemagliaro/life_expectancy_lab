@@ -1,0 +1,51 @@
+
+<html>
+<head>
+  <title>Life Expectancy Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+</head>
+<body>
+
+
+  <h1>Life Expectancy Lab - Maddie</h1>
+  <h2>{{year}}</h2>
+
+  <p>SUMMARY: In {{year}}, Canada had an average life expectancy of {{requestedData["Canada"][0]}} years. In the United States, the average was {{requestedData["US"][0]}}, and in Mexico, the average was {{requestedData["Mexico"][0]}}.</p>
+  <div id = "legend">
+    
+    
+  </div>
+
+  <div id="north_america">
+    {% include 'north_america.svg' %}
+  </div>
+
+ 
+  
+  <footer>
+    All data from <a href="https://data.worldbank.org/indicator/SP.DYN.LE00.IN?locations=MX-US-CA"> The World Bank</a>.
+  </footer>
+
+  <script>
+    console.log(0);
+
+    can = document.getElementsByClassName("Canada");    
+    mex = document.getElementsByClassName("Mexico");
+    us = document.getElementsByClassName("US");
+
+    for (let i = 0; i < can.length; i++){
+      can[i].style.fill = "hsl(237, 90%, {{requestedData["Canada"][1]}}%)";
+    }
+
+    for (let i = 0; i < mex.length; i++){
+      mex[i].style.fill = "hsl(237, 90%, {{requestedData["Mexico"][1]}}%)";
+    }
+
+    for (let i = 0; i < us.length; i++){
+      us[i].style.fill = "hsl(237, 90%, {{requestedData["US"][1]}}%)";
+    }
+
+  </script>
+</body>
+</html>
